@@ -9,9 +9,9 @@ import requests
 config_name = "./pDNSPod.json"
 
 config_json = {"Login": {"Account": {"enable": False, "username": "用户名", "password": "密码"},
-                         "Token": {"enable": False, "ID": "5位ID", "Token": "Token"}}, "Domains": [
-    {"enable": False, "domain": "域名", "sub_domain": "子域名，如是一级域名填@即可", "record_type": "记录类型，默认为A",
-     "record_line": "域名线路，默认或电信或联通等等，中文即可", "value": "记录内容,如需自动获取请输入auto"}]}
+                         "Token": {"enable": False, "ID": "5位ID", "Token": "Token"}},
+               "Domains": [{"enable": False, "domain": "域名", "sub_domain": "子域名，如是一级域名填@即可", "record_type": "记录类型，默认为A",
+                            "record_line": "域名线路，默认或电信或联通等等，中文即可", "value": "记录内容,如需自动获取请输入auto"}]}
 
 post_data = {"format": "json",
              "lang": "cn"}
@@ -95,6 +95,7 @@ def detect_config():
             print(e)
             exit(1)
         print("已写入默认配置文件，请加以修改")
+        exit(0)
     else:
         print("检测到配置文件，正在读取")
         try:
